@@ -1,22 +1,32 @@
 import { h, Component } from 'preact';
-import Card from 'preact-material-components/Card';
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import style from './style';
 import LogoImage from './images/logo.png';
+import Connection from './utils'
 
 export default class Home extends Component {
-	render() {
+
+
+	componentDidMount() {
+		let r = new Connection()
+		r.connect()
+		r.data.then(e=>{
+			console.log(e)
+		})
+	}
+
+
+	render({tag}) {
 		return (
 			<div class={style.view}>
-
 				<div class={style.sectionOne}>
 					<div class={style.headerView}>
 						<img 
 							src={LogoImage} 
 							alt="Logo"
 							class={style.logo} /> 
-						<p>MXHQMEX!</p>
+						<p>{tag}</p>
 					</div>
 					<p class={style.porcent}>84%</p>
 					<div class={style.infoView}>

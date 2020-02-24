@@ -43,7 +43,7 @@ export default class Connection {
         return this.fetchData(`${this.url}/es_MX/reporting/stores/1610?displays=reviewNote,criterias&hasCampaign=1&authorTypes=customer&period=rollingMonth&date_from=2019-09-07&date_to=2020-02-20`)
     }
 
-    
+
     getComments(){
         return this.fetchData(`${this.url}/es_MX/v2/review/list?type=store&source=sform&nb=10&itemsOnly=1&bodyRange=30-280&date_from=2019-09-07&date_to=2020-02-20&sort=createdAt&direction=des`)
     }
@@ -69,10 +69,4 @@ export default class Connection {
     _getToken(){
         return Cookie.get("token") ? Cookie.get("token") : null;
     }
-
-
-
-    
-
-
 }

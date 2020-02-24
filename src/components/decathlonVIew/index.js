@@ -7,17 +7,26 @@ import Connection from './utils'
 
 export default class Home extends Component {
 
+	state = {
+		name: 'David',
+		description: 'Me encanta la tienda y todos los productos, y ni hablar del excelente servicio'
+	};
 
 	componentDidMount() {
 		let r = new Connection()
 		r.connect()
 		r.data.then(e=>{
 			console.log(e)
+			e.map(result =>{
+				if (result.success){
+					console.log("wowow")	
+				}
+			})
 		})
 	}
 
 
-	render({tag}) {
+	render({tag},{name,description}) {
 		return (
 			<div class={style.view}>
 				<div class={style.sectionOne}>
@@ -43,10 +52,10 @@ export default class Home extends Component {
 				<div class={style.info}>
 					<div class={style.infoClient}>
 						<div class={style.name}>
-							<p>PABLO el 19/02/2020</p>
+							<p>{name} el 19/02/2020</p>
 						</div>
 						<div class={style.description}>
-							<p>Me encanta la tienda y todos los productos, y ni hablar del excelente servicio</p>
+							<p>{description}</p>
 						</div>
 					</div>
 					<hr class={style.line}/>

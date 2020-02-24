@@ -1,11 +1,14 @@
 import './style';
 import { Component } from 'preact';
-import Home from './components/decathlonVIew'
+import Views from './components/decathlon_views'
+
 export default class App extends Component {
 	render() {
 		return (
 			<div>
-				<Home></Home>
+				<h1>Hello, World!</h1>
+				<Views></Views>
+
 			</div>
 		);
 	}

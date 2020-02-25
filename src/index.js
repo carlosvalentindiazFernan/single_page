@@ -42,6 +42,7 @@ export default class App extends Component {
 						sastifaction={sastifaction}
 						name={comment.firstname}
 						description={comment.body}
+						created = {Connection.parseDate(Date(comment.created_at))}
 					/>
 					)) 
 				}	

@@ -11,7 +11,7 @@ export default class Home extends Component {
 	}	
 
 
-	render({tag,sastifaction=90,name='David',description = 'wowo'},{}) {
+	render({tag,sastifaction=90,name='David',description = 'wowo',created},{}) {
 		return (
 			<div class={style.view}>
 				<div class={style.sectionOne}>
@@ -37,7 +37,7 @@ export default class Home extends Component {
 				<div class={style.info}>
 					<div class={style.infoClient}>
 						<div class={style.name}>
-							<p>{name} el 19/02/2020</p>
+							<p>{name} el {created}</p>
 						</div>
 						<div class={style.description}>
 							<p>{description}</p>

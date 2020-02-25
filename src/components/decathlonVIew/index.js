@@ -3,30 +3,15 @@ import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import style from './style';
 import LogoImage from './images/logo.png';
-import Connection from './utils'
 
 export default class Home extends Component {
 
-	state = {
-		name: 'David',
-		description: 'Me encanta la tienda y todos los productos, y ni hablar del excelente servicio'
-	};
-
-	componentDidMount() {
-		let r = new Connection()
-		r.connect()
-		r.data.then(e=>{
-			console.log(e)
-			e.map(result =>{
-				if (result.success){
-					console.log("wowow")	
-				}
-			})
-		})
-	}
+	constructor(props) {
+		super(props);
+	}	
 
 
-	render({tag},{name,description}) {
+	render({tag,sastifaction=90,name='David',description = 'wowo'},{}) {
 		return (
 			<div class={style.view}>
 				<div class={style.sectionOne}>
@@ -37,7 +22,7 @@ export default class Home extends Component {
 							class={style.logo} /> 
 						<p>{tag}</p>
 					</div>
-					<p class={style.porcent}>84%</p>
+					<p class={style.porcent}>{sastifaction}%</p>
 					<div class={style.infoView}>
 						<i class={style.infoText}>
 							DEPORTISTAS <span>SATISFECHOS</span> 

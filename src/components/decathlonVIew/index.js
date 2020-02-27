@@ -11,7 +11,7 @@ export default class Home extends Component {
 	}	
 
 
-	render({tag,sastifaction=90,name='David',description = 'wowo',created},{}) {
+	render({tag,sastifaction=90,name='David',description = 'wowo',created,opinions=100},{}) {
 		return (
 			<div class={style.view}>
 				<div class={style.sectionOne}>
@@ -28,7 +28,7 @@ export default class Home extends Component {
 							DEPORTISTAS <span>SATISFECHOS</span> 
 						</i>
 						<p class= {style.subInfoText}>
-							BASADO EN 143 OPINIONES <span> DE LOS ULTIMOS 30 DIAS</span> 
+							BASADO EN {opinions} OPINIONES <span> DE LOS ULTIMOS 30 DIAS</span> 
 						</p>
 					</div>
 					<p class={style.andYou}> Y TU ?</p>

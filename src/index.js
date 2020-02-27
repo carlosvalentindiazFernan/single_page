@@ -8,6 +8,7 @@ export default class App extends Component {
 		super(props);
 		this.state = {
 			sastifaction: 100,
+			opinions: 0,
 			comment: {}
 		};
 	}	
@@ -24,7 +25,8 @@ export default class App extends Component {
 				if(Connection.isSuccess(sastifactionRank)){
 					const {data: {stats: {reviewNote}}} = sastifactionRank;
 					this.setState({
-						sastifaction: Math.trunc(reviewNote.satisfactionRate * 100)					
+						sastifaction: Math.trunc(reviewNote.satisfactionRate * 100),
+						opinions: reviewNote.totalReviews
 					});	
 				}
 
@@ -57,7 +59,7 @@ export default class App extends Component {
 	 }
 	 
 	 
-	render({},{sastifaction,comment}) {
+	render({},{sastifaction,comment,opinions}) {
 		return (
 			<div>
 				<Home  
@@ -65,6 +67,7 @@ export default class App extends Component {
 					sastifaction={sastifaction}
 					name={comment.firstname}
 					description={comment.body}
+					opinions={opinions}
 					created = {Connection.parseDate(Date(comment.created_at))}
 				/>
 			</div>

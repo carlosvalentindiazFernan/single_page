@@ -1,0 +1,138 @@
+
+/* fallback */
+html, body {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background: #FAFAFA;
+	font-family: 'Helvetica Neue', arial, sans-serif;
+	font-weight: 400;
+	color: #444;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+  
+.view{
+    display: flex;
+}
+
+.sectionOne {
+    background:#ffff;  
+    width: 50vw;
+}
+  
+.info{
+    background: rgba(101,172,227,1);
+    background: -moz-linear-gradient(-45deg, rgba(101,172,227,1) 0%, rgba(45,88,133,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(101,172,227,1)), color-stop(100%, rgba(45,88,133,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(101,172,227,1) 0%, rgba(45,88,133,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(101,172,227,1) 0%, rgba(45,88,133,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(101,172,227,1) 0%, rgba(45,88,133,1) 100%);
+    background: linear-gradient(135deg, rgba(101,172,227,1) 0%, rgba(45,88,133,1) 100%);
+    width:50vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.headerView{
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;  
+    justify-content: center;  
+    margin-top: 3em;
+    justify-content: center;
+}
+
+.headerView > p{
+    font-weight: bold;
+    height: 1.2rem;
+}
+
+.logo{
+    width: 10vw;
+    height: 5vh;
+}
+
+.porcent{
+    text-align: center;
+    font-size: 8rem;
+    font-weight: bold;
+    margin-top: 4rem;
+    margin-bottom: 0rem;
+}
+
+.andYou{
+    text-align: center;
+    color: #d76b3f;
+    font-size: 3rem;
+    font-weight: bold;    
+}
+
+.infoView{
+    text-align: center;
+}
+
+.infoText{
+    font-size: 2rem;
+    font-weight: bold;    
+}
+
+.infoText > span{
+    color: rgba(101,172,227,1);
+}
+
+
+.subInfoText{
+    font-size: 1em;
+    color: rgba(101,172,227,1);
+}
+
+.subInfoText > span{
+    color: #000000
+}
+
+.infoClient{
+    margin-left: 4.5em;    
+    color: #ffff;
+    
+}
+
+.succes{
+    color: #ffff;
+}
+
+.about{
+    font-size: 2.3rem;
+    font-weight: bold;    
+    color: #ffff;
+    -ms-transform: skewY(20deg); /* IE 9 */
+    transform: skewY(-10deg);    
+}
+
+.line{
+    height: 2px;
+    width: 80%;
+    background-color: #fff;
+}
+
+.description{
+    color: #fff;
+    width: 90%;
+}
+
+@media only screen and (max-width: 820px) {  
+    .sectionOne {
+        width: 100vw;
+    } 
+
+    .info{
+        width: 100vw;    
+    }
+
+    .view{
+        display: flex;
+        flex-direction: column;        
+    }
+} 

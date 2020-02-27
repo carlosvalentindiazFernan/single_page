@@ -1,14 +1,51 @@
-import './style';
 import { Component } from 'preact';
-import Views from './components/decathlon_views'
+import Home from './components/decathlonVIew'
+import Connection from './utils'
 
 export default class App extends Component {
-	render() {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			sastifaction: 100,
+			comments: []
+		};
+	}	
+
+	componentDidMount() {
+		let conx = new Connection()
+		conx.connect()
+		conx.data.then(e =>{
+
+			if(Connection.isSuccess(e)){
+
+				var [sastifactionRank, componentsPeople] = e											
+				const {data: {stats: {reviewNote}}} = sastifactionRank;
+				console.log(componentsPeople.data)
+				this.setState({
+					sastifaction: Math.trunc(reviewNote.satisfactionRate * 100),
+					comments: componentsPeople.data
+				});
+				
+	
+			}
+		})
+	}
+
+
+	render({},{sastifaction,comments}) {
 		return (
 			<div>
-				<h1>Hello, World!</h1>
-				<Views></Views>
-
+				{ comments.map( comment => (
+					<Home  
+						tag="MXMSL!" 
+						sastifaction={sastifaction}
+						name={comment.firstname}
+						description={comment.body}
+						created = {Connection.parseDate(Date(comment.created_at))}
+					/>
+					)) 
+				}	
 			</div>
 		);
 	}

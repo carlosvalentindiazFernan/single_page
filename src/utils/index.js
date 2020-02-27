@@ -109,19 +109,20 @@ export default class Connection {
     * @param {..args} Array
     * @return {boolean} 
     */    
-    static isSuccess(...args){
-        args.forEach(e=>{
-            if(e.success == false){
-                return false
-            }
-        });
+    static isSuccess(args){
+        if(args.success == false){
+            return false
+        }
         return true
     }
 
-
+    /**
+     * Return format date as yyy-mm-dd
+    * @name parseDate
+    * @param {dateInput} date 
+    * @return {date} String 
+    */    
     static parseDate(dateInput){
-
-
         const format = (d) => (d < 10 ? '0' : '') + d;
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -135,5 +136,16 @@ export default class Connection {
         // format date as yyyy-mm-dd
         let date = yyyy + '-' + mm + '-' + dd;
         return date
+    }
+
+
+    /**
+     * Get a ramdom comment from api
+    * @name getRamdomComment
+    * @param {dateInput} Array
+    * @return {comment} Object
+    */    
+    static getRamdomComment(comments){
+        return comments[Math.floor(Math.random() * comments.length)];
     }
 }
